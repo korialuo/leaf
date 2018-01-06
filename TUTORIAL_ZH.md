@@ -463,6 +463,15 @@ Debug < Release < Error < Fatal（日志级别高低）
 
 在 LeafServer 中，bin/conf/server.json 可以配置日志级别，低于配置的日志级别的日志将不会输出。Fatal 日志比较特殊，每次输出 Fatal 日志之后游戏服务器进程就会结束，通常来说，只在游戏服务器初始化失败时使用 Fatal 日志。
 
+我们还可以通过配置 LeafServer conf/conf.go 的 LogFlag 来在日志中输出文件名和行号：
+
+```
+LogFlag = log.Lshortfile
+```
+
+可用的 LogFlag 见：[https://golang.org/pkg/log/#pkg-constants](https://golang.org/pkg/log/#pkg-constants)
+
+
 更加详细的用法可以参考 [leaf/log](https://github.com/name5566/leaf/blob/master/log)。
 
 ### Leaf recordfile
@@ -508,7 +517,7 @@ func init() {
 
 更加详细的用法可以参考 [leaf/recordfile](https://github.com/name5566/leaf/blob/master/recordfile)。
 
-写在最后的话
+了解更多
 ---------------
 
-本文虽然未能全面描述 Leaf 服务器框架的方方面面，但整体轮廓已经显现。Leaf 尚小，但已经足够构建一个完整游戏服务器。在对开发效率的执着追求上，Leaf 还有很长的路需要走。
+阅读 Wiki 获取更多的帮助：[https://github.com/name5566/leaf/wiki](https://github.com/name5566/leaf/wiki)
